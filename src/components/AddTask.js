@@ -1,55 +1,70 @@
-import {useState } from 'react'
+import { useState } from "react"
 
 const AddTask = ({onAdd}) => {
-    const [text, setText] = useState('')
-    const [day, setDay] = useState('')
-    const [reminder, setReminder] = useState (false)
+    
+    const [formData, setFormData] = useState(
+        {
+        text: "", 
+          day: "" , 
+          reminder: false
+        }
+    )
+    function handleChange(event) {
+        const {name, value, type, checked} = event.target
+          setFormData(prevFormData => {
+              return {
+                  ...prevFormData,
+                  [name]: type === "checkbox" ? checked : value
+              }
+          })
+      }
+    function handleSubmit(event) {
+        event.preventDefault()
+        
+        if(!formData.text){
+            alert('Please add a task')
+            return
+        }
 
-   const onSubmit =(e) => {
-       e.preventDefault()
-
-       if( !text) {
-           alert ('Please add a task')
-           return
-       }
-       onAdd({text,day,reminder})
-       setText('')
-       setDay("")
-       setReminder(false)
-   } 
-
+        onAdd(formData)
+        setFormData(
+            {
+                text: "", 
+            day: "" , 
+            reminder: false
+            })
+      }   
 
   return (
-    <form className="add-form" onSubmit={onSubmit}>
-        <div className="form-control">
+    <form className='add-form' onSubmit={handleSubmit}>
+        <div className='form-control' >
             <label>Task</label>
             <input type='text' 
+            name="text"
             placeholder='Add Task' 
-            value={text} 
-            onChange={(e) => setText(e.target.value)}/>
+            value={formData.text}
+            onChange={handleChange}
+            />
         </div>
-        <div className="form-control">
-            <label>Day and Time</label>
+        <div className='form-control' >
+            <label>Day & Time</label>
             <input type='text' 
-            placeholder='Add Day and Time' 
-            value={day} 
-            onChange={(e) => setDay(e.target.value)}/>
+            name='day'
+            placeholder='Add Day & Time' 
+            value={formData.day}
+            onChange={handleChange}
+            />
         </div>
-        <div className="form-control form-control-check">
-            <label>Set Reminder</label>
+        <div className='form-control form-control-check' >
+            <label>Task</label>
             <input type='checkbox' 
-            checked={reminder}
-            value={reminder} 
-            onChange={(e) => setReminder(e.currentTarget.checked)} />
+            name="reminder"
+            checked={formData.reminder}
+            onChange={handleChange}
+             />
         </div>
-
-        <input type='submit' value = 'Save Task' className="btn btn-block"/>
-
-
-
+        <input className="btn btn-block" type='submit' value="Save task"/>
     </form>
-      
-    
   )
 }
 
