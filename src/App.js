@@ -1,43 +1,41 @@
 import Header from './components/Header';
 import './App.css';
 import { Tasks } from './components/Tasks';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import AddTask from './components/AddTask';
-
+import { onSnapshot ,addDoc, doc,deleteDoc, setDoc} from 'firebase/firestore';
+import { todosCollection, db } from './firebase';
 function App() {
   const [showAddTask, setShowAddTask] = useState(false)
-  const [tasks, setTasks] = useState([
-    {
-        id:1,
-        text:"Doctors Appoinment",
-        day: 'Feb 5th at 2:30pm',
-        reminder: true,
-    },
-    {
-        id:2,
-        text:"Meeting at school",
-        day: 'Feb 6th at 1:30pm',
-        reminder: true,
-    },
-    {
-        id:3,
-        text:"Food Shopping",
-        day: 'Feb 5th at 2:30pm',
-        reminder: false,
-    }
+  const [tasks, setTasks] = useState([])
 
-])
+//Calling firebase
+  useEffect(() => {
+   const unsubscribe = onSnapshot(todosCollection, function(snapshot){
+      // Sync up our local notes array with the snapshot data
+      const tasksArr = snapshot.docs.map(doc => ({
+        ...doc.data(),
+        id: doc.id
+    }))
+    setTasks(tasksArr)
+   })
+   return unsubscribe
+
+  }, [])
+
 //Add Task
-function addTask (formData){
-  const id = Math.floor(Math.random()* 1000) + 1
-  const newTask = {id, ...formData}
-  setTasks([...tasks,newTask])
+async function addTask (formData){
+  
+  const newTask = formData
+  await addDoc(todosCollection, newTask)
+  
 
 }
 
 //Delete task
-function deleteTask(id){
-  setTasks(tasks.filter((task) => task.id !==id))
+async function deleteTask(id){
+  const docRef = doc(db,"todos",id)
+  await deleteDoc(docRef)
 }
 
 //Toggle Reminder
