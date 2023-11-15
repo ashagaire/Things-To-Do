@@ -12,9 +12,9 @@ const Task = ({task , onDelete , onToggle}) => {
     <div className={`task ${task.reminder ? 'reminder' : ""} `} onDoubleClick={() => onToggle(task.id)}>
         <h3>{task.text} <FaTimes style={{color:'red', cursor: 'pointer'}} onClick={onDelete}/> </h3>
 
-        <p> {task.day} {task.time} 
-          {remainDays > 0?<span style={{color:'green'}}> {remainDays} days later </span> :
-            <span style={{color:'red'}}>Task missed </span>}
+        <p>  
+          {remainDays > 0?<span style={{color:'green'}}> {task.day} {task.time} {remainDays} days later </span> :
+            <span style={{color:'red'}}> {task.day} {task.time}</span>}
         </p>
         
 

@@ -1,8 +1,9 @@
-import Header from './components/Header';
 import './App.css';
+import Header from './components/Header';
 import { Tasks } from './components/Tasks';
+import AddTask from './components/AddTask'
+
 import { useEffect, useState } from 'react';
-import AddTask from './components/AddTask';
 import { onSnapshot ,addDoc, doc,deleteDoc, setDoc} from 'firebase/firestore';
 import { todosCollection, db } from './firebase';
 function App() {
