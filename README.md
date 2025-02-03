@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# Things-to-Do Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+The **Things-to-Do Application** is a simple, user-friendly app built using **React.js** and **Firebase Hosting** with **Firestore** as the database. This application helps users manage their tasks efficiently by allowing them to add, along with date and view how many days untill deadline. The app is deployed on **Firebase Hosting**, ensuring reliability and scalability.
 
-## Available Scripts
+---
+## Deployment
+The application is deployed on Firebase Hosting. You can access it [here](https://things-to-do-394b5.firebaseapp.com/).
 
-In the project directory, you can run:
+---
+## Features
+- **Task Management:**
+  - Add new tasks to your to-do list.
+  - Delete tasks.
+  - View remaining days.
+  
+- **Real-Time Data:**
+  - Real-time updates using **Firestore Database**, ensuring the latest task status is always displayed.
 
-### `npm start`
+- **User-Friendly Interface:**
+  - Built with **React.js** to provide an intuitive and seamless user experience.
+  - Responsive design for access on all screen sizes.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Database Management:**
+  - **Firestore** is used as the database for securely storing tasks and handling real-time updates.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Deployment:**
+  - Hosted on **Firebase Hosting** for fast and reliable access.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tech Stack
 
-### `npm run build`
+### Frontend:
+- React.js (JavaScript library for building user interfaces)
+- Firebase (for real-time database and hosting)
+- React Icons (for adding icons to the UI)
+- Moment.js (for date management)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Development Tools:
+- React Scripts (for creating and managing React apps)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Deployment:
+- Firebase Hosting (platform-as-a-service for deployment)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
