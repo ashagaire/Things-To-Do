@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
 
 * {
   box-sizing: border-box;
@@ -7,29 +7,46 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .container {
   max-width: 500px;
-  margin: 30px auto;
+  margin: 50px auto;
   overflow: auto;
   min-height: 300px;
-  border: 1px solid steelblue;
   padding: 30px;
-  border-radius: 5px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
+@media (max-width: 600px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+  font-size: 20px;
+  color: rgb(17, 66, 17);
+}
+
+@media (max-width: 600px) {
+  .header {
+    font-size: 14px;
+  }
 }
 
 .btn {
   display: inline-block;
-  background: #000;
+  background: hsl(86, 89%, 25%);
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -39,9 +56,12 @@ body {
   text-decoration: none;
   font-size: 15px;
   font-family: inherit;
-  
 }
 
+.button-container {
+  display: flex;
+  justify-content: flex-end; /* Aligns content to the right */
+}
 .btn:focus {
   outline: none;
 }
@@ -52,14 +72,18 @@ body {
 
 .btn-block {
   display: block;
-  width: 100%;
 }
 
 .task {
   background: #f4f4f4;
   margin: 5px;
+  margin-bottom: 20px;
   padding: 10px 20px;
   cursor: pointer;
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 .task.reminder {
@@ -74,10 +98,20 @@ body {
 
 .add-form {
   margin-bottom: 40px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+@media (max-width: 600px) {
+  .add-form {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 }
 
 .form-control {
-  margin: 20px 0;
+  margin: 10px 10px;
 }
 
 .form-control label {
@@ -87,21 +121,27 @@ body {
 .form-control input {
   flex: 1;
   width: 90%;
-  min-width: 200px;
+  min-width: 150px;
   height: 40px;
-  margin: 5px;
+  margin: 10px;
   padding: 3px 7px;
   font-size: 17px;
   text-indent: 2px;
   border: 1px solid #444;
   border-radius: 5px;
   display: block;
-  
 }
 
-.div-row{
+.div-row {
   display: flex;
-  width:20px
+  width: 20px;
+  max-width: 100%;
+}
+
+@media (max-width: 600px) {
+  .div-row {
+    flex-direction: column; /* Stack items vertically on small screens */
+  }
 }
 /* for displaying two divs inside one div in row
 .form-control input {
@@ -119,7 +159,6 @@ textarea {
   border: 1px solid #444;
   border-radius: 5px;
   display: block;
-  
 }
 
 .form-control-check {
@@ -135,11 +174,16 @@ textarea {
 .form-control-check input {
   flex: 2;
   height: 20px;
-} 
-
-
+}
 
 footer {
   margin-top: 30px;
   text-align: center;
+}
+
+@media (max-width: 600px) {
+  .btn {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
 }
