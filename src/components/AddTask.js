@@ -66,7 +66,6 @@ const AddTask = ({ onAdd, setShowAddTask }) => {
           <input
             type="date"
             name="day"
-            placeholder="Add Day"
             min={now}
             value={formData.day}
             onChange={handleChange}
@@ -77,7 +76,6 @@ const AddTask = ({ onAdd, setShowAddTask }) => {
           <input
             type="time"
             name="time"
-            placeholder="Add Time"
             value={formData.time}
             onChange={handleChange}
           />
