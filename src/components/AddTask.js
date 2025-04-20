@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { FaTimes } from "react-icons/fa";
+
 import moment from "moment";
 const now = moment().format("YYYY-MM-DD");
-const AddTask = ({ onAdd }) => {
+const AddTask = ({ onAdd, setShowAddTask }) => {
   const [formData, setFormData] = useState({
     text: "",
     day: "",
@@ -37,13 +39,18 @@ const AddTask = ({ onAdd }) => {
       time: "",
       reminder: false,
     });
+    setShowAddTask(false);
   }
 
   return (
     <form className="add-form" onSubmit={handleSubmit}>
+      <div className="cancle-add-task ">
+        <FaTimes onClick={() => setShowAddTask(false)} size={20} style={{}} />
+      </div>
       <div className="form-control">
         <label>Task</label>
         <textarea
+          // className="text-area"
           type="text"
           name="text"
           maxLength="200"
@@ -86,6 +93,12 @@ const AddTask = ({ onAdd }) => {
         />
       </div>
       <div className="button-container">
+        <input
+          className="btn btn-block cancel-btn"
+          type="button"
+          value="Cancle"
+          onClick={() => setShowAddTask(false)}
+        />
         <input className="btn btn-block" type="submit" value="Save task" />
       </div>
     </form>
